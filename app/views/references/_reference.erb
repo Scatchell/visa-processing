@@ -1,0 +1,18 @@
+<%= f.fields_for :references do |reference_field| %>
+    <div>
+      <%= reference_field.label :name %>
+      <%= reference_field.text_field :name %>
+    </div>
+
+    <div>
+      <%= reference_field.label :telephone %>
+      <%= reference_field.text_field :telephone %>
+    </div>
+
+    <div>
+      <%= reference_field.label :address %>
+      <%= reference_field.text_field :address %>
+    </div>
+
+<% end -%>
+

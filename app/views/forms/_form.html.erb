@@ -1,0 +1,85 @@
+<%= form_for(@form) do |f| %>
+    <% if @form.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@form.errors.count, "error") %> prohibited this form from being saved:</h2>
+
+          <ul>
+            <% @form.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+
+
+    <%= render partial: 'text_field', locals: {form: f, field_name: :telephone} %>
+
+    <%= render partial: 'text_field', locals: {form: f, field_name: :full_name} %>
+
+    <div>
+      <%= f.label :gender %>
+      <%= f.select :gender, [:male, :female] %>
+    </div>
+
+
+    <%= render partial: 'text_field', locals: {form: f, field_name: :nationality} %>
+
+    <%= render partial: 'text_field', locals: {form: f, field_name: :place_of_birth} %>
+
+    <div>
+      <%= f.label :date_of_birth %>
+      <%= f.date_select :date_of_birth, {start_year: 1900, end_year: Time.now.year} %>
+    </div>
+
+    <%= render partial: 'text_field', locals: {form: f, field_name: :passport_number} %>
+
+    <%= render partial: 'text_field', locals: {form: f, field_name: :place_of_issue} %>
+
+    <div>
+      <%= f.label :date_of_issue %>
+      <%= f.date_select :date_of_issue, {start_year: 1900, end_year: Time.now.year} %>
+    </div>
+
+    <div>
+      <%= f.label :valid_until %>
+      <%= f.date_select :valid_until, {start_year: 1900, end_year: Time.now.year} %>
+    </div>
+
+    <div>
+      <%= f.label :date_of_birth %>
+      <%= f.date_select :date_of_birth, {start_year: 1900, end_year: Time.now.year} %>
+    </div>
+
+    <%= render partial: 'text_field', locals: {form: f, field_name: :occupation} %>
+
+    <%= render partial: 'text_field', locals: {form: f, field_name: :present_address} %>
+
+    <%= render partial: 'text_field', locals: {form: f, field_name: :destination_in_sudan} %>
+
+    <%= render partial: 'text_field', locals: {form: f, field_name: :period_of_stay} %>
+
+    <%= render partial: 'text_field', locals: {form: f, field_name: :purpose_of_visit} %>
+
+    <div>
+      <%= f.label :date_of_arrival %>
+      <%= f.date_select :date_of_arrival, {start_year: Time.now.year} %>
+    </div>
+
+    <div class="reference" style="border: solid 1px black">
+      <%= render partial: 'references/reference', locals: {f: f} %>
+      <%= render partial: 'references/reference', locals: {f: f} %>
+    </div>
+    
+    <%= render partial: 'text_field', locals: {form: f, field_name: :duration_of_previous_stay_in_sudan} %>
+
+
+    <%= render partial: 'text_field', locals: {form: f, field_name: :previous_address_in_sudan} %>
+
+
+    <%= render partial: 'text_field', locals: {form: f, field_name: :valid_permit_countries} %>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>
