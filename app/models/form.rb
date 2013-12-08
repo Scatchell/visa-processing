@@ -22,5 +22,7 @@ class Form
   field :previous_address_in_sudan, :type => String
 
   embeds_many :references
+  embeds_many :secondaries
   accepts_nested_attributes_for :references
+  accepts_nested_attributes_for :secondaries
 end

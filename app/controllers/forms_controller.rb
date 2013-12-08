@@ -16,6 +16,7 @@ class FormsController < ApplicationController
   def new
     @form = Form.new
     @form.references.build
+    @form.secondaries.build
   end
 
   # GET /forms/1/edit

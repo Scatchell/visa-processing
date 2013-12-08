@@ -1,0 +1,17 @@
+<%= f.fields_for :secondaries do |secondary_field| %>
+    <div>
+      <%= secondary_field.label :name %>
+      <%= secondary_field.text_field :name %>
+    </div>
+
+    <div>
+      <%= secondary_field.label :age %>
+      <%= secondary_field.text_field :age %>
+    </div>
+
+    <div>
+      <%= secondary_field.label :gender %>
+      <%= secondary_field.text_field :gender %>
+    </div>
+
+<% end -%>

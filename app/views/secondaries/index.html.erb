@@ -1,0 +1,25 @@
+<h1>Listing secondaries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @secondaries.each do |secondary| %>
+      <tr>
+        <td><%= link_to 'Show', secondary %></td>
+        <td><%= link_to 'Edit', edit_secondary_path(secondary) %></td>
+        <td><%= link_to 'Destroy', secondary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Secondary', new_secondary_path %>

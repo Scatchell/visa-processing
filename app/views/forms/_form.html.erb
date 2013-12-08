@@ -66,11 +66,11 @@
       <%= f.date_select :date_of_arrival, {start_year: Time.now.year} %>
     </div>
 
-    <div class="reference" style="border: solid 1px black">
+    <div class="references" style="border: solid 1px black">
       <%= render partial: 'references/reference', locals: {f: f} %>
       <%= render partial: 'references/reference', locals: {f: f} %>
     </div>
-    
+
     <%= render partial: 'text_field', locals: {form: f, field_name: :duration_of_previous_stay_in_sudan} %>
 
 
@@ -78,6 +78,12 @@
 
 
     <%= render partial: 'text_field', locals: {form: f, field_name: :valid_permit_countries} %>
+
+    <div class="secondaries" style="border: solid 1px black">
+      <%= render partial: 'secondaries/secondary', locals: {f: f} %>
+      <%= render partial: 'secondaries/secondary', locals: {f: f} %>
+      <%= render partial: 'secondaries/secondary', locals: {f: f} %>
+    </div>
 
     <div class="actions">
       <%= f.submit %>
