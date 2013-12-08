@@ -1,27 +1,34 @@
 <% if user_signed_in? %>
-  <h1>Listing forms</h1>
-  <ul>
-    <li><%= current_user.email %></li>
-    <li> <%= link_to 'My info', edit_user_registration_path %></li>
-    <li><%= link_to 'Sign out', destroy_user_session_path %></li>
-    <%= link_to 'New Form', new_form_path %>
+    <h1>Listing forms</h1>
+    <ul>
+      <li><%= current_user.email %></li>
+      <li> <%= link_to 'My info', edit_user_registration_path %></li>
+      <li><%= link_to 'Sign out', destroy_user_session_path %></li>
+      <%= link_to 'New Form', new_form_path %>
 
 
+      <table>
+        <tbody>
+        <% @forms.each do |form| %>
+            <tr>
+              <td>
+                <%= link_to 'Show', form %>
+              </td>
 
-    <% @forms.each do |form| %>
-      <tr>
-        <td><%= link_to 'Show', form %></td>
-        <td><%= link_to 'Edit', edit_form_path(form) %></td>
-        <td><%= link_to 'Destroy', form, method: :delete, data: {confirm: 'Are you sure?'} %></td>
-      </tr>
-    <% end %>
+              <td>
+                <%= link_to 'Edit', edit_form_path(form) %>
+              </td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
 
 
-  </ul>
+    </ul>
 <% else %>
 
-  <ul>
-    <li><%= link_to 'Sign in', new_user_session_path %></li>
-    <li><%= link_to 'Sign up', new_user_registration_path %></li>
-  </ul>
+    <ul>
+      <li><%= link_to 'Sign in', new_user_session_path %></li>
+      <li><%= link_to 'Sign up', new_user_registration_path %></li>
+    </ul>
 <% end %>
