@@ -70,6 +70,28 @@ class FormsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def form_params
-      params[:form].permit(:name)
+
+      format_date_for('date_of_birth')
+      format_date_for('date_of_issue')
+      format_date_for('valid_until')
+      format_date_for('date_of_arrival')
+
+      delete_unused_date_fields_for('date_of_birth')
+      delete_unused_date_fields_for('date_of_issue')
+      delete_unused_date_fields_for('valid_until')
+      delete_unused_date_fields_for('date_of_arrival')
+
+      params[:form].permit!
     end
+
+    def format_date_for(field)
+      params[:form][field] = Time.new(params[:form]["#{field}(1i)"], params[:form]["#{field}(2i)"], params[:form]["#{field}(3i)"])
+    end
+
+    def delete_unused_date_fields_for(field)
+      params[:form].delete("#{field}(1i)")
+      params[:form].delete("#{field}(2i)")
+      params[:form].delete("#{field}(3i)")
+    end
+
 end

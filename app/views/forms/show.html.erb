@@ -1,4 +1,114 @@
 <p id="notice"><%= notice %></p>
 
+
+<p>
+  Telephone: <%= @form.telephone %>
+</p>
+
+<p>
+  Full Name: <%= @form.full_name %>
+</p>
+
+<p>
+  Gender: <%= @form.gender %>
+</p>
+
+<p>
+  Nationality: <%= @form.nationality %>
+</p>
+
+<p>
+  Place of Birth: <%= @form.date_of_birth %>
+</p>
+
+<p>
+  Date of Birth: <%= @form.place_of_birth %>
+</p>
+
+<p>
+  Passport Number: <%= @form.passport_number %>
+</p>
+
+<p>
+  Date of Issue: <%= @form.date_of_issue %>
+</p>
+
+<p>
+  Place of Issue: <%= @form.place_of_issue %>
+</p>
+
+<p>
+  Valid Until: <%= @form.valid_until %>
+</p>
+
+<p>
+  Occupation: <%= @form.occupation %>
+</p>
+
+<p>
+  Present Address: <%= @form.present_address %>
+</p>
+
+<p>
+  Address In Sudan: <%= @form.previous_address_in_sudan %>
+</p>
+
+<p>
+  Destination In Sudan: <%= @form.destination_in_sudan %>
+</p>
+
+<p>
+  Period of Stay: <%= @form.period_of_stay %>
+</p>
+
+<p>
+  Purpose of Visit: <%= @form.purpose_of_visit %>
+</p>
+
+<p>
+  Date of Arrival in Sudan: <%= @form.date_of_arrival %>
+</p>
+
+<p>
+  Date of Arrival in Sudan: <%= @form.date_of_arrival %>
+</p>
+
+<p>
+  Names and addresses of references in Sudan:
+</p>
+
+<% @form.references.each_with_index do |reference, i| %>
+  Reference <%= number_to_human(i + 1) %>
+  <p>
+    Name: <%= reference.name %>
+  </p>
+
+  <p>
+    Telephone: <%= reference.telephone %>
+  </p>
+
+  <p>
+    Address: <%= reference.address %>
+  </p>
+<% end %>
+
+<p>
+  Duration of previous residence in Sudan and last address before leaving Sudan:
+</p>
+
+<p>
+  <%= @form.duration_of_previous_stay_in_sudan %>
+</p>
+
+<p>
+  Name of Country (other than Sudan) for which applicant holds a valid permit to enter:
+</p>
+
+<p>
+  <%= @form.valid_permit_countries %>
+</p>
+
+Names of people accompanying the applicant in the same passport (not done yet):
+
 <%= link_to 'Edit', edit_form_path(@form) %> |
 <%= link_to 'Back', forms_path %>
